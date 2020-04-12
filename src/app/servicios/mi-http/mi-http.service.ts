@@ -1,7 +1,9 @@
+import { log } from 'util';
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpResponseBase } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { HttpClient, HttpResponseBase} from '@angular/common/http';
 import { map } from 'rxjs/operators';
+
+import { Observable, from } from 'rxjs';
 
 @Injectable()
 export class MiHttpService {
@@ -27,7 +29,7 @@ export class MiHttpService {
     });
   }
 
-  public httpGetO ( url: string): Observable<object>
+  public httpGetO ( url: string): Observable<Object>
   {
     return this.http.get(url).pipe(map((res) => res));
   }
