@@ -127,28 +127,28 @@ span.ingreso, span.registro{
     border-style: solid white 40px;
 }
 .banner .first:hover {
-    width: 150%; 
+    width: 40%; 
     cursor: pointer;
 }
 .banner .second {
     background:   green url("../../../assets/icons/listado.png") center center no-repeat; 
 }
 .banner .second:hover {
-    width: 150%; 
+    width: 40%; 
     cursor: pointer;
 }
 .banner .third {
     background: rgba(253, 53, 53, 0.87) url("../../../assets/icons/jugadores.png") center center no-repeat; 
 }
 .banner .third:hover {
-    width: 150%; 
+    width: 40%; 
     cursor: pointer;
 }
 .banner .fourth {
     background: rgba(87, 53, 255, 0.87) url("../../../assets/icons/white-gears-100x100.png") center center no-repeat ; 
 }
 .banner .fourth:hover {
-    width: 150%; 
+    width: 40%; 
     cursor: pointer;
 }
 
