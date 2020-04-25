@@ -1,31 +1,3 @@
-@media only screen and (min-height: 696px) {
-    div.ingreso{
-        padding-top: 4%;
-        width: 30%;
-        right: 2%;
-    }
-    div.quienSoy{
-        width: 20%;
-    }
-}
-
-@media only screen and (min-width: 1321px) {
-    div.ingreso{
-        width: 30%;
-        right: 2%;
-    }
-}
-
-@media only screen and (max-width: 1320px) {
-    div.ingreso{
-        padding-top: 3%;
-        width: 30%;
-        right: 2%;
-    }
-    div.quienSoy{
-        width: 20%;
-    }
-}
 
 @media only screen and (max-width: 1231px) {
     div.ingreso{
@@ -40,23 +12,6 @@
         width: 20%;
     }
 }
-
-@media only screen and (max-width: 1116px) {
-    div.ingreso{
-        right: 0%;
-    }
-    div.quienSoy{
-        width: 20%;
-    }
-}
-
-@media only screen and (max-width: 1028px) {
-    div.quienSoy{
-        width: 30%;
-    }
-}
-
-
 
 
 div{
@@ -80,25 +35,6 @@ div.titulo{
     font-family: "Arial";
 }
 
-div.ingreso{
-    position: absolute;
-    top: 10%;
-    height: 100%;
-    font-size: 48%;
-    text-align: right;
-}
-
-div.ingreso:hover{
-    cursor: pointer;
-}
-
-
-
-span.ingreso, span.registro{
-    margin: 4px;
-    color:yellow;
-    font-family: 'Arial';
-}
 
 .banner {
     height: 45%;
@@ -131,14 +67,14 @@ span.ingreso, span.registro{
     cursor: pointer;
 }
 .banner .second {
-    background:   green url("../../assets/icons/listado.png") center center no-repeat; 
+    background:   green url("../../assets/imagenes/secret.jpg") center center no-repeat; 
 }
 .banner .second:hover {
     width: 40%; 
     cursor: pointer;
 }
 .banner .third {
-    background: rgba(253, 53, 53, 0.87) url("../../assets/icons/jugadores.png") center center no-repeat; 
+    background: rgba(253, 53, 53, 0.87) url("../../assets/imagenes/piedrapepeltijera.png") center center no-repeat; 
 }
 .banner .third:hover {
     width: 40%; 
@@ -152,21 +88,8 @@ span.ingreso, span.registro{
     cursor: pointer;
 }
 
-div.quienSoy{
-    outline: none;
-    position: relative;
-    left: 2%;
-    margin-top: 8%;
-}
 
-div.quienSoy:hover{
-    transform: scale(1.1);
-    cursor: pointer;
-}
 
-span.quienSoy{
-    font-family: "Arial";
-    color: white;
-    font-size: 70%;
+h2.titulojuego {
+    text-align: center;
 }
-
