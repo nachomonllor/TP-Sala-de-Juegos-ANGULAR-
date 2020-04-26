@@ -3,7 +3,12 @@ export abstract class Juego {
   public jugador: string;
   public gano = false;
 
-  constructor(nombre?: string, gano?: boolean,jugador?:string) {
+  //nombre: string;
+  cantidadPuntos:number;
+  hora:Date;
+
+
+  constructor(nombre?: string, gano?: boolean,jugador?:string,_puntos?: number, _hora?:Date ) {
     if (nombre)
       this.nombre = nombre;
 
@@ -13,6 +18,10 @@ export abstract class Juego {
       this.jugador=jugador;
     else
       this.jugador= "natalia natalia";
+
+    this.cantidadPuntos = _puntos;
+    this.hora = _hora;
+
   }
 
 
