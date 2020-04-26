@@ -8,9 +8,8 @@
     div.titulo{
         top: 20%;
     }
-    div.quienSoy{
-        width: 20%;
-    }
+    
+    
 }
 
 
@@ -31,26 +30,27 @@ div.titulo{
     font-size: 250%;
     padding-top: 10%;
     text-align: center;
-    color: yellow;
+    color: blue ;
     font-family: "Arial";
+    
 }
 
 
 .banner {
     height: 45%;
-    width: 95%;
+    width: 120%;
     position: relative;
     margin-top: 15%;
     margin-left: 2.3%;
     display: flex;
     flex-direction: row; 
-    background-color: black;
+    background-color:cyan  ;
     border-radius: 2%;
     align-items: center;
 }
 .banner .item {
     flex: 1 1 auto;
-    width: 24%;
+    width: 40%;
     height: 95%;
     transition: width 0.7s ease-out; 
     border-radius: 5%;
@@ -59,32 +59,33 @@ div.titulo{
     outline: none;
 }
 .banner .first {
-    background: blue  url("../../assets/imagenes/matem.png") center center no-repeat; 
+    
+    background:black   url("../../assets/imagenes/matem.png") center center no-repeat; 
     border-style: solid white 40px;
 }
 .banner .first:hover {
-    width: 40%; 
+    width: 90%; 
     cursor: pointer;
 }
 .banner .second {
-    background:   green url("../../assets/imagenes/secret.jpg") center center no-repeat; 
+    background:   black url("../../assets/imagenes/secret.jpg") center center no-repeat; 
 }
 .banner .second:hover {
-    width: 40%; 
-    cursor: pointer;
+    width: 90%; 
+    cursor: pointe0r;
 }
 .banner .third {
-    background: rgba(253, 53, 53, 0.87) url("../../assets/imagenes/piedrapepeltijera.png") center center no-repeat; 
+    background: black  url("../../assets/imagenes/piedrapapeltijera.png") center center no-repeat; 
 }
 .banner .third:hover {
-    width: 40%; 
+    width: 90%; 
     cursor: pointer;
 }
 .banner .fourth {
-    background: rgba(87, 53, 255, 0.87) url("../../assets/icons/white-gears-100x100.png") center center no-repeat ; 
+    background:  black  url("../../assets/imagenes/primos.jpg") center center no-repeat ; 
 }
 .banner .fourth:hover {
-    width: 40%; 
+    width: 90%; 
     cursor: pointer;
 }
 
@@ -92,4 +93,5 @@ div.titulo{
 
 h2.titulojuego {
     text-align: center;
+    color:cyan  ;
 }
