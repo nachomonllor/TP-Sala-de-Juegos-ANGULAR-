@@ -103,5 +103,23 @@ export class JuegoAgilidad extends Juego {
       // this.resUsuario = "";
       }
 
+      finalizar(){
+        /*clearInterval(this._timer);
+        //4.finaliza el juego, cargas datos
+        this.juego.cantidadPuntos = this.puntos;
+        this.jugador.juegos.push(this.juego);
+        //5. guardas en la base de datos
+        localStorage.setItem('jugador', JSON.stringify(this.jugador));
+        console.log(this.jugador);
+    
+        //6.resetas el juego
+         this.juego = new Juego();
+         this.juego.nombre = "Agilidad Aritmetica";
+         this.juego.cantidadPuntos =0;
+         this.juego.hora = new Date();
+         */
+    
+       }
+
 
 }

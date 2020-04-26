@@ -72,7 +72,7 @@
             Enviar
         </button>
         <br>
-        <button mat-raised-button  class ="otroBoton" (click)= "finalizar()" >
+        <button mat-raised-button  class ="otroBoton" (click)= "nuevoJuego.finalizar()" >
             Finalizar
         </button>
         <br>
@@ -83,9 +83,9 @@
         <div style="text-align: center" class = "texto">
             {{nuevoJuego.comparacion}}
             <br>    
-            Tiempo: {{reloj}} - Nivel: {{nivel}}
+            Tiempo: {{nuevoJuego.reloj}} - Nivel: {{nuevoJuego.nivel}}
             <br>
-            Puntos: {{puntos}}
+            Puntos: {{nuevoJuego.puntos}}
             <br>
         </div>
         
