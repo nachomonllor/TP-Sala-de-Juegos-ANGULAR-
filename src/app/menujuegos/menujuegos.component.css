@@ -89,7 +89,13 @@ div.titulo{
     cursor: pointer;
 }
 
-
+.banner .cinco:hover {
+    width: 90%; 
+    cursor: pointer;
+}
+.banner .cinco {
+    background:  black  url("../../assets/imagenes/anagrama.png") center center no-repeat ; 
+}
 
 h2.titulojuego {
     text-align: center;
