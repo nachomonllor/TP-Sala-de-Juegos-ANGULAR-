@@ -14,13 +14,13 @@
 }
 
 .texto {
-    color: green;
+    color:cyan;
     font-style: italic;
     font-size: 20px;
   }
 
   .texto_cabecera {
-    color:red;
+    color: cyan;
     font-style: italic;
     font-size: 25px;
   }

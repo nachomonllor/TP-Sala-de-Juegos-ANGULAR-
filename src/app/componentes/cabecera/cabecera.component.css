@@ -108,7 +108,7 @@ span.ingreso, span.registro{
     margin-left: 2.3%;
     display: flex;
     flex-direction: row; 
-    background-color: black;
+    background-color: cyan ;
     border-radius: 2%;
     align-items: center;
 }
@@ -123,7 +123,7 @@ span.ingreso, span.registro{
     outline: none;
 }
 .banner .first {
-    background: blue  url("../../../assets/icons/joystick.png") center center no-repeat; 
+    background:black   url("../../../assets/icons/joystick.png") center center no-repeat; 
     border-style: solid white 40px;
 }
 .banner .first:hover {
@@ -131,21 +131,21 @@ span.ingreso, span.registro{
     cursor: pointer;
 }
 .banner .second {
-    background:   green url("../../../assets/icons/listado.png") center center no-repeat; 
+    background:  black   url("../../../assets/icons/listado.png") center center no-repeat; 
 }
 .banner .second:hover {
     width: 40%; 
     cursor: pointer;
 }
 .banner .third {
-    background: rgba(253, 53, 53, 0.87) url("../../../assets/icons/jugadores.png") center center no-repeat; 
+    background: black  url("../../../assets/icons/jugadores.png") center center no-repeat; 
 }
 .banner .third:hover {
     width: 40%; 
     cursor: pointer;
 }
 .banner .fourth {
-    background: rgba(87, 53, 255, 0.87) url("../../../assets/icons/white-gears-100x100.png") center center no-repeat ; 
+    background: black   url("../../../assets/icons/white-gears-100x100.png") center center no-repeat ; 
 }
 .banner .fourth:hover {
     width: 40%; 
@@ -168,4 +168,9 @@ span.quienSoy{
     font-family: "Arial";
     color: white;
     font-size: 70%;
+}
+
+h2.titulolistado{
+    text-align: center;
+    color:cyan  ;
 }

@@ -72,6 +72,7 @@ export class JuegoAgilidad extends Juego {
         }
       }
 
+      /*
       comparar() {
         if(this.res == this.resUsuario) {
            this.comparacion ="CORRECTO";
@@ -86,22 +87,28 @@ export class JuegoAgilidad extends Juego {
         }
         else{
           this.comparacion ="INCORRECTO-Escriba de vuelta el resulta";
-          //los incorrectos no restan putos
-          /*
-          if(this.puntos>=0){
-           this.puntos=this.puntos-10;
-          } */   
+          
+          
+          //if(this.puntos>=0){
+          // this.puntos=this.puntos-10;
+          //}    
         }
         
         console.log(this.num1 + " " + this.operadorSeleccionado + " " + this.num2);
 
-      }
+      }*/
+
+      
 
       pasarSiguiente(){
         //this._timer = setInterval(() => this.contador(), 1000);
         this.cargarNumeros();
       // this.resUsuario = "";
       }
+
+    
+      
+
 
       finalizar(){
         /*clearInterval(this._timer);
