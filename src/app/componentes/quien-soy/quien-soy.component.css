@@ -1,3 +1,5 @@
+
+
 @media only screen and (max-width: 1116px) {
     div.left{
         width: 18vw;
@@ -99,7 +101,7 @@ img.avatar{
 }
 
 div.desc{
-    font-family: "8Bits";
+    font-family: "Arial";
     color: white;
     text-align: center;
     width: 60%;
@@ -132,4 +134,10 @@ div.back{
 img.links:hover, img.back:hover{
     transform: scale(1.1);
     outline: none;
+}
+
+
+h2.texto{
+    text-align: center;
+    color:cyan  ;
 }
