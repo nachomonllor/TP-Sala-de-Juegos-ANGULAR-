@@ -1,0 +1,11 @@
+.texto_cabecera {
+    color: cyan;
+    font-style: italic;
+    font-size: 25px;
+  }
+
+  .texto {
+    color: cyan ;
+    font-style: italic;
+    font-size: 20px;
+  }

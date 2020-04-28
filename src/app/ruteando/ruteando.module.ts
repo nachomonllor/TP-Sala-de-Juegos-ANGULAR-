@@ -23,6 +23,7 @@ import { MapaDeGoogleComponent } from '../componentes/mapa-de-google/mapa-de-goo
 import { JugadoresListadoComponent } from '../componentes/jugadores-listado/jugadores-listado.component';
 import { AnagramaComponent } from '../componentes/anagrama/anagrama.component';
 import { PrimosComponent } from '../componentes/primos/primos.component';
+import { PiedrapapeltijeraComponent } from '../componentes/piedrapapeltijera/piedrapapeltijera.component';
 
 
 // declaro donde quiero que se dirija
@@ -41,12 +42,13 @@ const MiRuteo = [
 component: JuegosComponent ,
 children:
      [{path: '' , component: MenuCardComponent},
-      {path:  'Adivina' , component: AdivinaElNumeroComponent},
+      {path: 'Adivina' , component: AdivinaElNumeroComponent},
       {path: 'AdivinaMasListado' , component: AdivinaMasListadoComponent},
       {path: 'AgilidadaMasListado' , component: AgilidadMasListadoComponent},
       {path: 'Agilidad' , component: AgilidadAritmeticaComponent},
       {path: 'Anagrama' , component :  AnagramaComponent},
-      { path: 'Primos', component: PrimosComponent } 
+      {path: 'Primos', component: PrimosComponent } ,
+      {path: 'Piedrapapeltijera', component: PiedrapapeltijeraComponent}
     ]
 },
 {path: '**' , component: ErrorComponent},
