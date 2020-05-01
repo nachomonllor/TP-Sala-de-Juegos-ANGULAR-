@@ -3,10 +3,10 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 import {Subscription} from "rxjs";
-//import {TimerObservable} from "rxjs/observable/TimerObservable";
 import { timer, Observable } from 'rxjs';
 //import { USUARIOS } from '../modelos/usuarios';
-//import { AuthService } from '../auth/auth.service';
+import { AuthService } from '../../auth/auth.service';
+import { USUARIOS } from '../../clases/usuarios';
 
 
 @Component({
@@ -20,6 +20,10 @@ export class LoginComponent implements OnInit {
 
   private subscription: Subscription;
   //usuarios= USUARIOS;
+  
+
+  //private subscription: Subscription;
+  usuarios= USUARIOS;
   usuario = '';
   clave= '';
   progreso: number;
@@ -31,7 +35,7 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private router: Router /*, private serviceLogin:AuthService */ )
+    private router: Router, private serviceLogin:AuthService  )
      {
       this.progreso=0;
       this.ProgresoDeAncho="0%";
@@ -39,24 +43,23 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
-    //console.log(this.usuarios);
+    console.log(this.usuarios);
     localStorage.clear();
   }
 
   Entrar() {
-    
+    /*
     if (this.usuario === 'admin' && this.clave === 'admin') {
-      this.router.navigate(['/Principal']);
+
+      this.router.navigate(['/simon']);
       console.log("entre");
     }
-    
-   /*
+    */
   if (this.serviceLogin.login(this.usuario, this.clave)){
-    this.router.navigate(['/menu']);
+    this.router.navigate(['/Principal']);
       console.log("entre");
-  } */ 
-  else{
-    alert("Ingreso mal su usuario y contraseña");
+  }else{
+    alert("Ingreso mal su usuario y contraseÃ±a");
     this.progreso=0;
     this.ProgresoDeAncho="0%";
   }
@@ -92,7 +95,7 @@ export class LoginComponent implements OnInit {
           break;
         case 30:
           this.clase="progress-bar progress-bar-Info progress-bar-striped active";
-          this.progresoMensaje="Adjustando encriptaciÃ³n.."; 
+          this.progresoMensaje="Adjustando encriptaciÃƒÂ³n.."; 
           break;
           case 60:
           this.clase="progress-bar progress-bar-success progress-bar-striped active";
@@ -121,6 +124,9 @@ export class LoginComponent implements OnInit {
   }
 
 }
+
+
+
 /*
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
