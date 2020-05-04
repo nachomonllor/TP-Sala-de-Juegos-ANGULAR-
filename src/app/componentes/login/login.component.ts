@@ -2,11 +2,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
-import {Subscription} from "rxjs";
-import { timer, Observable } from 'rxjs';
 //import { USUARIOS } from '../modelos/usuarios';
 import { AuthService } from '../../auth/auth.service';
-import { USUARIOS } from '../../clases/usuarios';
+//import { USUARIOS } from '../../clases/usuarios';
+import { usuarioregistro } from '../../clases/usuarioregistro';
 
 
 @Component({
@@ -18,109 +17,51 @@ import { USUARIOS } from '../../clases/usuarios';
 
 export class LoginComponent implements OnInit {
 
-  private subscription: Subscription;
-  //usuarios= USUARIOS;
+ 
+  logeando=true;
+  arrayOfKeys;
+  arrayOfValues;
+  us = new Array<usuarioregistro>();
+  entraNombre = '';
+  entraClave = '';
+
+  constructor(private router: Router) {
+    this.recuperarListaUsuarios();
+
+     console.log(this.entraNombre + " " + this.entraClave);
+
+   }
+
   
 
-  //private subscription: Subscription;
-  usuarios= USUARIOS;
-  usuario = '';
-  clave= '';
-  progreso: number;
-  progresoMensaje="esperando..."; 
-  logeando=true;
-  ProgresoDeAncho:string;
-
-  clase="progress-bar progress-bar-info progress-bar-striped ";
-
-  constructor(
-    private route: ActivatedRoute,
-    private router: Router, private serviceLogin:AuthService  )
-     {
-      this.progreso=0;
-      this.ProgresoDeAncho="0%";
-
+  recuperarListaUsuarios() {
+    this.arrayOfKeys = Object.keys(localStorage);
+    this.arrayOfValues = Object.values(localStorage);
+    for(let i =0; i<this.arrayOfValues.length; i++) {
+      this.us.push(JSON.parse( this.arrayOfValues[i]));
+    }
   }
 
-  ngOnInit() {
-    console.log(this.usuarios);
-    localStorage.clear();
+  ngOnInit(): void {
   }
+  
+  
 
   Entrar() {
-    /*
-    if (this.usuario === 'admin' && this.clave === 'admin') {
+      //this.router.navigate(['/Principal']);
+      console.log(this.entraNombre + " " + this.entraClave);
+       let flag = false;
+      for(let i =0; i < this.us.length; i++) {
+          if(this.us[i].nombre === this.entraNombre && this.us[i].clave === this.entraClave) {
+            this.router.navigate(['/Principal']);
+            flag = true;
+            break;
+          }
+      }
+      if(flag == false) {
+        alert("el usuario no existe, tenes que registrarte");
+      }
 
-      this.router.navigate(['/simon']);
-      console.log("entre");
-    }
-    */
-  if (this.serviceLogin.login(this.usuario, this.clave)){
-    this.router.navigate(['/Principal']);
-      console.log("entre");
-  }else{
-    alert("Ingreso mal su usuario y contraseÃ±a");
-    this.progreso=0;
-    this.ProgresoDeAncho="0%";
-  }
-  
-   /*  for(let i =0; i<this.usuarios.length; i++) {
-       if(this.usuario === this.usuarios[i].usuario &&
-        this.clave === this.usuarios[i].contras ) {
-            this.router.navigate(['/home']);
-            //this.usuarios[i].
-            localStorage.setItem('jugador', JSON.stringify(this.usuarios[i]));
-            console.log("entre");
-          } 
-         
-    } */
-   //si no encontro a ningun usuario con ese nombre y pass
-   //que muestre un texto
-
-  }
-  MoverBarraDeProgreso() {
-    
-    this.logeando=false;
-    this.clase="progress-bar progress-bar-danger progress-bar-striped active";
-    this.progresoMensaje="NSA spy..."; 
-    let _timer = timer(200, 50);
-    this.subscription = _timer.subscribe(t => {
-      console.log("inicio");
-      this.progreso=this.progreso+1;
-      this.ProgresoDeAncho=this.progreso+20+"%";
-      switch (this.progreso) {
-        case 15:
-        this.clase="progress-bar progress-bar-warning progress-bar-striped active";
-        this.progresoMensaje="Verificando ADN..."; 
-          break;
-        case 30:
-          this.clase="progress-bar progress-bar-Info progress-bar-striped active";
-          this.progresoMensaje="Adjustando encriptaciÃƒÂ³n.."; 
-          break;
-          case 60:
-          this.clase="progress-bar progress-bar-success progress-bar-striped active";
-          this.progresoMensaje="Recompilando Info del dispositivo..";
-          break;
-          case 75:
-          this.clase="progress-bar progress-bar-success progress-bar-striped active";
-          this.progresoMensaje="Recompilando claves facebook, gmail, chats..";
-          break;
-          case 85:
-          this.clase="progress-bar progress-bar-success progress-bar-striped active";
-          this.progresoMensaje="Instalando KeyLogger..";
-          break;
-          
-        case 100:
-          console.log("final");
-          
-          this.subscription.unsubscribe();
-          //this.router.navigate(['/simon']);
-          this.Entrar();
-          break;
-      }     
-    });
-    //this.Entrar();
-    //this.logeando=true;
   }
 
 }

@@ -1,4 +1,30 @@
+
 <body>
+    
+  <form class="modal-content animate" >
+    
+    <div class="container">
+      <label><b>Nombre</b></label>
+
+      <input type="text" placeholder="nombre" [(ngModel)]=  "entraNombre"  name="nombre" required>
+
+      <label><b>Clave</b></label>
+
+      <input type="password" placeholder="clave" [(ngModel)]=  "entraClave"  name="clave" required>
+
+      <div class="clearfix">
+        <button type="submit" (click) = "RegistraUsuario()" class="signupbtn">Registrarme</button>
+      </div>
+
+    </div>
+  </form>
+ 
+  
+</body>
+
+
+
+<!--body>
   
   
   <strong><p>No leer lo anterior, es solo un ejemplo sacado de https://www.argentina.gob.ar/terminos-y-condiciones </p></strong>
@@ -39,4 +65,4 @@
   }
   </script>
   
-  </body>
+  </body-->

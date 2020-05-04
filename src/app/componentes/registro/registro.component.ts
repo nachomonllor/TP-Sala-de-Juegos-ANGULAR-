@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { usuarioregistro } from '../../clases/usuarioregistro';
 //para poder hacer las validaciones
 //import { Validators, FormBuilder, FormControl, FormGroup} from '@angular/forms';
 @Component({
@@ -14,9 +15,22 @@ export class RegistroComponent implements OnInit {
   formRegistro:FormGroup=this.miConstructor.group({
     usuario:this.email
   });*/
-  constructor( ) { }
+  entraNombre= '';
+  entraClave = '';
 
-  ngOnInit() {
+  us : usuarioregistro;
+
+  constructor() {
+       
+   }
+
+  ngOnInit(): void {
+  }
+
+  RegistraUsuario() {
+       this.us = new usuarioregistro(this.entraNombre, this.entraClave);
+       localStorage.setItem(this.entraNombre, JSON.stringify ( this.us));
+       alert("te registraste con exito");
   }
 
 }
