@@ -56,6 +56,7 @@ import { SexoPipe } from './pipes/sexo.pipe';
 import { MenujuegosComponent } from './menujuegos/menujuegos.component';
 import { PrimosComponent } from './componentes/primos/primos.component';
 import { PiedrapapeltijeraComponent } from './componentes/piedrapapeltijera/piedrapapeltijera.component';
+import { TatetiComponent } from './componentes/tateti/tateti.component';
 
 @NgModule({
   declarations: [
@@ -84,7 +85,8 @@ import { PiedrapapeltijeraComponent } from './componentes/piedrapapeltijera/pied
     SexoPipe,
     MenujuegosComponent,
     PrimosComponent,
-    PiedrapapeltijeraComponent
+    PiedrapapeltijeraComponent,
+    TatetiComponent
   ],
   imports: [
     BrowserModule,
