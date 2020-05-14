@@ -53,8 +53,10 @@ export class JuegoAgilidad extends Juego {
       // this.listaJuegos = JSON.parse(localStorage.getItem('lista'));
       
       let aux : Array<Juego> =  JSON.parse(localStorage.getItem('lista'));
-      for(let i =0; i < aux.length; i++) {
-        this.listaJuegos.push(aux[i]);
+      if(aux != null) {
+        for(let i =0; i < aux.length; i++) {
+          this.listaJuegos.push(aux[i]);
+        }
       }
 
         //this.us = new usuarioregistro(nombre, )
