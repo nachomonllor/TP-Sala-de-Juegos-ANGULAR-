@@ -1,6 +1,8 @@
 import { Juego } from "./juego";
+import { JuegoStorage } from "./juegoStorage";
 
 export class JuegoPiedraPapelTijera  extends Juego{
+
    public verificar(): boolean {
         throw new Error("Method not implemented.");
    }
@@ -24,12 +26,34 @@ export class JuegoPiedraPapelTijera  extends Juego{
   
   cantidadPuntos = 0;
 
-  constructor() {
-    super();
+  listaJuegos : Array<Juego>;
+  juego: Juego;
+
+  constructor(_nombre?: string, _gano?: boolean,_jugador?:string,_puntos?: number, _hora?:Date) {
+    super(_nombre, _gano, _jugador, _puntos, _hora )
 
     this.inicializarJuego();
 
+     
+    this.listaJuegos = new Array<Juego>();
+    // this.listaJuegos = JSON.parse(localStorage.getItem('lista'));
+    
+    let aux : Array<Juego> =  JSON.parse(localStorage.getItem('lista'));
+    for(let i =0; i < aux.length; i++) {
+      this.listaJuegos.push(aux[i]);
+    }
+   
+
+
  }
+
+ ngOnInit() {
+
+  this.jugador = JSON.parse(localStorage.getItem('admin'));
+  console.log(this.jugador); 
+   
+}
+
 
   seleccionarElemento() {
     this.indiceElementoSeleccionado = Math.floor(Math.random() * 3);
@@ -49,6 +73,8 @@ export class JuegoPiedraPapelTijera  extends Juego{
     //this.juego.cantidadPuntos =0;
     //this.juego.hora = new Date();
     this.cantidadPuntos =0;
+
+    //this.finalizar();
   }
 
 
@@ -177,21 +203,22 @@ export class JuegoPiedraPapelTijera  extends Juego{
   }*/
    
   finalizar(){
-    //clearInterval(this._timer);
-    //4.finaliza el juego, cargas datos
-    //this.juego.cantidadPuntos=this.puntajeHumano;
-    //this.jugador.juegos.push(this.juego);
-    //5. guardas en la base de datos
-    //localStorage.setItem('jugador', JSON.stringify(this.jugador));
-    //console.log(this.jugador);
+    
+    
+    
+    this.juego = new Juego();
+    this.juego.nombre = "Piedra Papel tijera";
+    this.juego.cantidadPuntos = this.puntajeHumano;
+    this.juego.hora = new Date();
+    this.juego.jugador = this.nombre;
+    this.listaJuegos.push(this.juego);
 
-    //6.resetas el juego
-    this.inicializarJuego();
-   // this.puntajeHumano = 0;
-    this.puntajeCompu = 0;
+    localStorage.setItem('lista', JSON.stringify(this.listaJuegos));
+    console.log(this.listaJuegos);
 
+    
 
- }
+   }
 
 
 }

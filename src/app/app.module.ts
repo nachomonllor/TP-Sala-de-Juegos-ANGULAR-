@@ -57,6 +57,7 @@ import { MenujuegosComponent } from './menujuegos/menujuegos.component';
 import { PrimosComponent } from './componentes/primos/primos.component';
 import { PiedrapapeltijeraComponent } from './componentes/piedrapapeltijera/piedrapapeltijera.component';
 import { TatetiComponent } from './componentes/tateti/tateti.component';
+import { ListaJuegosComponent } from './lista-juegos/lista-juegos.component';
 
 @NgModule({
   declarations: [
@@ -86,7 +87,8 @@ import { TatetiComponent } from './componentes/tateti/tateti.component';
     MenujuegosComponent,
     PrimosComponent,
     PiedrapapeltijeraComponent,
-    TatetiComponent
+    TatetiComponent,
+    ListaJuegosComponent
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,8 @@
+import { RegistroComponent } from './../componentes/registro/registro.component';
+import { usuarioregistro } from './usuarioregistro';
 import { Jugador } from "./jugador";
 import { Juego } from "./juego";
+import { JuegoStorage } from "./juegoStorage";
 
 export class JuegoAgilidad extends Juego {
     public verificar(): boolean {
@@ -29,19 +32,33 @@ export class JuegoAgilidad extends Juego {
     nivel:number = 1;
     limite:number = 10;
 
+    listaJuegos:Array<JuegoStorage>;
+    jug: Jugador;
+   
+    us: usuarioregistro;
+    //this.us = new usuarioregistro(this.entraNombre, this.entraClave);
+       // localStorage.setItem(this.entraNombre, JSON.stringify ( this.us));
 
     constructor(nombre?: string, gano?: boolean,jugador?:string,_puntos?: number, _hora?:Date) 
     { 
         super(nombre, gano, jugador, _puntos, _hora)
       //2.colocar nombre del juego
-      // this.juego = new Juego
-      // this.juego.nombre = "Agilidad Aritmetica";
-      // this.juego.cantidadPuntos =0;
-      // this.juego.hora = new Date();
+       this.juego = new Juego
+       this.juego.nombre = "Agilidad Aritmetica";
+       this.juego.cantidadPuntos =0;
+       this.juego.hora = new Date();
       //console.log(this.juego);
 
+      this.listaJuegos = new Array<Juego>();
+      // this.listaJuegos = JSON.parse(localStorage.getItem('lista'));
+      
+      let aux : Array<Juego> =  JSON.parse(localStorage.getItem('lista'));
+      for(let i =0; i < aux.length; i++) {
+        this.listaJuegos.push(aux[i]);
+      }
 
-  
+        //this.us = new usuarioregistro(nombre, )
+       this.jug= new Jugador(nombre, nombre, "");
     }
 
     /*
@@ -72,34 +89,7 @@ export class JuegoAgilidad extends Juego {
         }
       }
 
-      /*
-      comparar() {
-        if(this.res == this.resUsuario) {
-           this.comparacion ="CORRECTO";
-          // this.resUsuario = 0;
-           this.puntos=this.puntos+10;  
-           if(this.puntos % 50 == 0) {
-             //this.subirDeNivel();
-           }      
-           clearInterval(this._timer);  
-           this.reloj=10;
-           this.pasarSiguiente();
-        }
-        else{
-          this.comparacion ="INCORRECTO-Escriba de vuelta el resulta";
-          
-          
-          //if(this.puntos>=0){
-          // this.puntos=this.puntos-10;
-          //}    
-        }
-        
-        console.log(this.num1 + " " + this.operadorSeleccionado + " " + this.num2);
-
-      }*/
-
-      
-
+  
       pasarSiguiente(){
         //this._timer = setInterval(() => this.contador(), 1000);
         this.cargarNumeros();
@@ -108,23 +98,25 @@ export class JuegoAgilidad extends Juego {
 
     
       
-
+      
 
       finalizar(){
-        /*clearInterval(this._timer);
-        //4.finaliza el juego, cargas datos
+       
+        
+        
+        this.juego = new Juego();
+        this.juego.nombre = "Agilidad Aritmetica";
         this.juego.cantidadPuntos = this.puntos;
-        this.jugador.juegos.push(this.juego);
-        //5. guardas en la base de datos
-        localStorage.setItem('jugador', JSON.stringify(this.jugador));
-        console.log(this.jugador);
-    
-        //6.resetas el juego
-         this.juego = new Juego();
-         this.juego.nombre = "Agilidad Aritmetica";
-         this.juego.cantidadPuntos =0;
-         this.juego.hora = new Date();
-         */
+        this.juego.hora = new Date();
+        this.juego.jugador = this.nombre;
+        this.listaJuegos.push(this.juego);
+
+
+       // localStorage.setItem('jugador', JSON.stringify(this.jug));
+        localStorage.setItem('lista', JSON.stringify(this.listaJuegos));
+        console.log(this.listaJuegos);
+
+        
     
        }
 

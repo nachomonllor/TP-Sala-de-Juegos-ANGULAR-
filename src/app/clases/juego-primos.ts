@@ -31,6 +31,9 @@ export class JuegoPrimos extends Juego {
   juego: Juego;
   // jugador:Jugador;
 
+
+  listaJuegos:Array<Juego>;
+
   constructor(nombre?: string, gano?: boolean,jugador?:string,_puntos?: number, _hora?:Date) 
   {
     super(nombre, gano, jugador, _puntos, _hora )
@@ -39,6 +42,14 @@ export class JuegoPrimos extends Juego {
    // this._timer = setInterval(() => this.contador(), 1000);
     this.resetearColorBotones();
     this.inicializar();
+     
+    this.listaJuegos = new Array<Juego>();
+      // this.listaJuegos = JSON.parse(localStorage.getItem('lista'));
+      
+      let aux : Array<Juego> =  JSON.parse(localStorage.getItem('lista'));
+      for(let i =0; i < aux.length; i++) {
+        this.listaJuegos.push(aux[i]);
+      }
      
 
    } 
@@ -200,18 +211,22 @@ export class JuegoPrimos extends Juego {
 
 
   finalizar(){
-    //clearInterval(this._timer);
-    //4.finaliza el juego, cargas datos
-    this.juego.cantidadPuntos=this.puntos;
-    //this.jugador.juegos.push(this.juego);
-    //5. guardas en la base de datos
-    localStorage.setItem('jugador', JSON.stringify(this.jugador));
-    console.log(this.jugador);
+    
+    
+    
+    this.juego = new Juego();
+    this.juego.nombre = "Encontrar Primos";
+    this.juego.cantidadPuntos = this.puntos;
+    this.juego.hora = new Date();
+    this.juego.jugador = this.nombre;
+    this.listaJuegos.push(this.juego);
 
-    //6.reseteo el juego
-    //this.inicializarJuego();
-    this.JugarOtraVez();
- }
+    localStorage.setItem('lista', JSON.stringify(this.listaJuegos));
+    console.log(this.listaJuegos);
+
+    
+
+   }
 
     
 

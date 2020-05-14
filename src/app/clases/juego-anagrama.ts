@@ -1,5 +1,6 @@
 import { Juego } from "./juego";
 import { Jugador } from "./jugador";
+import { JuegoStorage } from "./juegoStorage";
 
 export class JuegoAnagrama extends Juego {
     public verificar(): boolean {
@@ -17,6 +18,10 @@ export class JuegoAnagrama extends Juego {
   //jugador:Jugador;
   puntos: number = 0;  
 
+  listaJuegos:Array<Juego>;
+ 
+    jug :Jugador;
+
   constructor(_nombre?: string, _gano?: boolean,_jugador?:string,_puntos?: number, _hora?:Date) {
       super(_nombre, _gano, _jugador, _puntos, _hora )
     /*
@@ -29,6 +34,22 @@ export class JuegoAnagrama extends Juego {
 
       this.inicializarJuego();
 */
+
+      this.juego = new Juego
+      this.juego.nombre = "Anagrama";
+      this.juego.cantidadPuntos =0;
+      this.juego.hora = new Date();
+      //console.log(this.juego);
+      
+      this.listaJuegos = new Array<Juego>();
+      // this.listaJuegos = JSON.parse(localStorage.getItem('lista'));
+      
+      let aux : Array<Juego> =  JSON.parse(localStorage.getItem('lista'));
+      for(let i =0; i < aux.length; i++) {
+        this.listaJuegos.push(aux[i]);
+      }
+     
+      this.jug = new Jugador(_nombre, _nombre, "");
 
    }
 
@@ -47,7 +68,7 @@ export class JuegoAnagrama extends Juego {
 
    ngOnInit() {
 
-    this.jugador = JSON.parse(localStorage.getItem('jugador'));
+    this.jugador = JSON.parse(localStorage.getItem('admin'));
     console.log(this.jugador); 
     this.seleccionarPalabra();
     this.desordenarPalabra();
@@ -147,23 +168,24 @@ export class JuegoAnagrama extends Juego {
    }
 
 
-   
+  
  
    finalizar(){
-      //clearInterval(this._timer);
-      //4.finaliza el juego, cargas datos
+    
+    
+    
+    this.juego = new Juego();
+    this.juego.nombre = "Anagrama";
+    this.juego.cantidadPuntos = this.puntos;
+    this.juego.hora = new Date();
+    this.juego.jugador = this.nombre;
+    this.listaJuegos.push(this.juego);
 
-      /*
-      this.juego.cantidadPuntos=this.puntos;
-      this.jugador.juegos.push(this.juego);
-      //5. guardas en la base de datos
-      localStorage.setItem('jugador', JSON.stringify(this.jugador));
-      console.log(this.jugador);
+    localStorage.setItem('lista', JSON.stringify(this.listaJuegos));
+    console.log(this.listaJuegos);
 
-      //6.resetas el juego
-      this.inicializarJuego();
-      this.JugarOtraVez();
-      */
+    
+
    }
 
 }

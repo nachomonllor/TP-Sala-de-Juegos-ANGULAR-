@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Juego } from '../../clases/juego';
 
 @Component({
   selector: 'app-tateti',
@@ -59,5 +60,10 @@ export class TatetiComponent implements OnInit {
     if (this.posiciones[0][2]==ficha && this.posiciones[1][1]==ficha && this.posiciones[2][0]==ficha)
       alert('Gano:'+ficha);      
   }
+
+
+ 
+  
+
 
 }

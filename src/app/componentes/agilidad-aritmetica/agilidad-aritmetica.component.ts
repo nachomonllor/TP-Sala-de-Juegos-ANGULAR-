@@ -23,6 +23,8 @@ export class AgilidadAritmeticaComponent implements OnInit {
   private subscription: Subscription;
   _timer:any;
 
+  lista :Array<Juego>;
+
   ngOnInit() {
 
     this._timer = setInterval(() => this.contador(), 1000);
@@ -35,6 +37,8 @@ export class AgilidadAritmeticaComponent implements OnInit {
     this.nuevoJuego.cargarNumeros();
     //--------
     console.info("Inicio agilidad");
+
+    //this.lista = JSON.parse( localStorage.getItem('lista' ));
   }
 
   

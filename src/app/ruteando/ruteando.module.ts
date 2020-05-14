@@ -25,6 +25,7 @@ import { AnagramaComponent } from '../componentes/anagrama/anagrama.component';
 import { PrimosComponent } from '../componentes/primos/primos.component';
 import { PiedrapapeltijeraComponent } from '../componentes/piedrapapeltijera/piedrapapeltijera.component';
 import { TatetiComponent } from '../componentes/tateti/tateti.component';
+import { ListaJuegosComponent } from '../lista-juegos/lista-juegos.component';
 
 
 // declaro donde quiero que se dirija
@@ -36,7 +37,7 @@ const MiRuteo = [
 {path: 'QuienSoy' , component: QuienSoyComponent},
 {path: 'Registro' , component: RegistroComponent},
 {path: 'Principal' , component: PrincipalComponent},
-{path: 'Listado' , component: ListadoComponent},
+{path: 'Listado' , component: ListaJuegosComponent},
 {path: 'Paises' , component: ListadoDePaisesComponent},
 
 { path: 'Juegos' ,

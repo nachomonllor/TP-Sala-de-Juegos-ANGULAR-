@@ -29,7 +29,7 @@ export class RegistroComponent implements OnInit {
 
   RegistraUsuario() {
        this.us = new usuarioregistro(this.entraNombre, this.entraClave);
-       localStorage.setItem(this.entraNombre, JSON.stringify ( this.us));
+       localStorage.setItem('admin', JSON.stringify ( this.us));
        alert("te registraste con exito");
   }
 
