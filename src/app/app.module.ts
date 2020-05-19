@@ -1,6 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { MaterialModule } from './shared/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterModule, Routes } from '@angular/router';
+
+
 import { AppComponent } from './app.component';
 import { AdivinaElNumeroComponent } from './componentes/adivina-el-numero/adivina-el-numero.component';
 import { ListadoDeResultadosComponent } from './componentes/listado-de-resultados/listado-de-resultados.component';
@@ -10,7 +14,6 @@ import { HttpClientModule } from '@angular/common/http';
 
 // import { AccordionModule } from 'ngx-bootstrap';
 // agrego las clases para utilizar ruteo
-import { RouterModule, Routes } from '@angular/router';
 
 import { MiHttpService } from './servicios/mi-http/mi-http.service'; 
 import { PaisesService } from './servicios/paises.service'; 
@@ -93,12 +96,15 @@ import { ListaJuegosComponent } from './lista-juegos/lista-juegos.component';
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     RuteandoModule,
+    MaterialModule,
     ReactiveFormsModule,
     HttpClientModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyB6f8x4IjRlesQ3oETc6BXYQHVRTOlY3Ys'
-    })
+    }),
+  
     // NgbModule.forRoot(MiRuteo),
     // importo el ruteo
     // RouterModule.forRoot(MiRuteo)

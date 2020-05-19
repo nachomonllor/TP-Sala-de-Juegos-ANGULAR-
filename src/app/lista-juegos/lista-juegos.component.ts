@@ -13,7 +13,7 @@ export class ListaJuegosComponent implements OnInit {
   jugador:usuarioregistro;
   lista :Array<Juego>;
   constructor() {
-    this.jugador = JSON.parse(localStorage.getItem('admin'));
+    this.jugador = JSON.parse(localStorage.getItem('usuarios'));
     this.lista = JSON.parse(localStorage.getItem('lista'));
    }
   ngOnInit(): void {

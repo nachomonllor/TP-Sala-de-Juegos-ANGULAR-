@@ -6,24 +6,27 @@
     </div>
     <br>
     <div style="text-align: center">
-        <button mat-button name="palabraDesordenada" class="botonUsuario" disabled>
-          {{anagrama.palabraDesordenada}}
-      </button>
-        <br>
-        <input type="text" name="ingresaUsuario" class="texto" [(ngModel)]="anagrama.palabraIngresada" />
-        <br> <br>
-        <button mat-button class="botonUsuario" (click)="anagrama.comparar()">
-              Enviar
-      </button>
-        <br>
-        <button mat-button class="botonUsuario" (click)="anagrama.finalizar()">
-              Finalizar
-      </button>
+        <!-- <button name="palabraDesordenada" class="btn btn-primary botonUsuario" disabled>
+                
+         </button> -->
+        <form (ngSubmit)="onSubmit(f)" #f=ngForm>
 
-        <div style="text-align: center" class="texto">
-            <br> {{anagrama.resultado + " intento: " + anagrama.intentos}}
-            <br> Puntos {{anagrama.puntos}}
-        </div>
+            <input type="text" name="palabraDesordenada" class="texto" value="{{ palabraDesordenada }}" />
+
+            <input type="text" name="palabra" class="texto" [(ngModel)]="palabra" />
+
+            <button class="btn btn-primary" type="submit">
+                Enviar
+            </button>
+            <br>
+            <button class="btn btn-primary" type="button" (click)="endGame()">
+              Finalizar
+            </button>
+            <div style="text-align: center" class="texto">
+                <br> {{_anagramaService.resultado + " intento: " + _anagramaService.intentos}}
+                <br> Puntos {{_anagramaService.puntos}}
+            </div>
+        </form>
     </div>
 
 </body>

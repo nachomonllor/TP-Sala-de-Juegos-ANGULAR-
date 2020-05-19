@@ -24,7 +24,6 @@ export  class Juego {
 
   }
 
-
   
 
  // public abstract verificar():boolean; 

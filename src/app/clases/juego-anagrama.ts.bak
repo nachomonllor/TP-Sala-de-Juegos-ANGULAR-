@@ -1,0 +1,69 @@
+// import { Juego } from "./juego";
+// import { Jugador } from "./jugador";
+// import { JuegoStorage } from "./juegoStorage";
+
+// export class JuegoAnagrama extends Juego {
+//     public verificar(): boolean {
+//         throw new Error("Method not implemented.");
+//     }
+
+//     private palabras : Array<string>  ;
+
+//   palabraOrdenada :string; //palabra original del arreglo
+//   palabraDesordenada:string; //desordena algoritmo
+//   palabraIngresada:string; //ingresa usuario
+//   intentos:number =0;
+//   resultado :string ="Esperando: ";
+//   juego: Juego;
+//   //jugador:Jugador;
+//   puntos: number = 0;  
+
+//   listaJuegos:Array<Juego>;
+ 
+//     jug :Jugador;
+
+//   constructor(_nombre?: string, _gano?: boolean,_jugador?:string,_puntos?: number, _hora?:Date) {
+//       super(_nombre, _gano, _jugador, _puntos, _hora )
+//     /*
+//       this.palabras = new Array<string>();
+//       this.palabras.push("computadora");
+//       this.palabras.push("microfono");
+//       this.palabras.push("mesa");
+//       this.palabras.push("telefono");
+//       this.palabras.push("anagrama");
+
+//       this.inicializarJuego();
+// */
+
+//       this.juego = new Juego
+//       this.juego.nombre = "Anagrama";
+//       this.juego.cantidadPuntos =0;
+//       this.juego.hora = new Date();
+//       //console.log(this.juego);
+      
+//       this.listaJuegos = new Array<Juego>();
+//       // this.listaJuegos = JSON.parse(localStorage.getItem('lista'));
+      
+//       let aux : Array<Juego> =  JSON.parse(localStorage.getItem('lista'));
+//       if(aux != null) {
+//         for(let i =0; i < aux.length; i++) {
+//           this.listaJuegos.push(aux[i]);
+//         }
+//       }
+//       this.jug = new Jugador(_nombre, _nombre, "");
+
+//    }
+
+
+
+//    ngOnInit() {
+
+//     this.jugador = JSON.parse(localStorage.getItem('admin'));
+//     console.log(this.jugador); 
+//     this.seleccionarPalabra();
+//     this.desordenarPalabra();
+//   }
+
+
+
+// }

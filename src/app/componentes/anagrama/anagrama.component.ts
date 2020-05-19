@@ -1,5 +1,6 @@
+import { AnagramaService } from './anagrama.service';
 import { Component, OnInit } from '@angular/core';
-import { JuegoAnagrama } from '../../clases/juego-anagrama';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-anagrama',
@@ -7,17 +8,28 @@ import { JuegoAnagrama } from '../../clases/juego-anagrama';
   styleUrls: ['./anagrama.component.css']
 })
 export class AnagramaComponent implements OnInit {
-
-  anagrama: JuegoAnagrama;
-  constructor() { 
-      this.anagrama = new JuegoAnagrama();
+  palabra: string;
+  palabraDesordenada: string;
+  constructor(public _anagramaService: AnagramaService) { 
      // this.anagrama.cargarListaPalabras();
-     this.anagrama.inicializarJuego();
   }
 
   ngOnInit() {
-   // this.anagrama.cargarListaPalabras();
-     this.anagrama.inicializarJuego();
+    debugger
+    this.palabraDesordenada = this._anagramaService.desordenarPalabra();
+    this.palabra = '';
+    // this.anagrama.cargarListaPalabras();
+     //this.anagrama.inicializarJuego();
+  }
+  onSubmit(form: NgForm) {
+    debugger
+    this._anagramaService.verifyResult(this.palabra)
+    this._anagramaService.inicializarJuego();
+    this.ngOnInit();
+    // (click)="_anagramaService.verifyResult()"
+  }
+  endGame() {
+    this._anagramaService.saveGame();    
   }
 
 }

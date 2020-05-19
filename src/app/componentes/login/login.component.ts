@@ -1,11 +1,10 @@
+import { usuarioregistro } from './../../clases/usuarioregistro';
+import { UserService } from './../../servicios/user.service';
 
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { Router } from '@angular/router';
 
-//import { USUARIOS } from '../modelos/usuarios';
-import { AuthService } from '../../auth/auth.service';
 //import { USUARIOS } from '../../clases/usuarios';
-import { usuarioregistro } from '../../clases/usuarioregistro';
 
 
 @Component({
@@ -15,55 +14,42 @@ import { usuarioregistro } from '../../clases/usuarioregistro';
 })
 
 
-export class LoginComponent implements OnInit {
-
- 
+export class LoginComponent {
   logeando=true;
   arrayOfKeys;
   arrayOfValues;
   us = new Array<usuarioregistro>();
-  entraNombre = '';
-  entraClave = '';
+  nombre = '';
+  clave = '';
 
-  constructor(private router: Router) {
-    this.recuperarListaUsuarios();
-
-     console.log(this.entraNombre + " " + this.entraClave);
-
-   }
-
-  
-
-  recuperarListaUsuarios() {
-    this.arrayOfKeys = Object.keys(localStorage);
-    this.arrayOfValues = Object.values(localStorage);
-    for(let i =0; i<this.arrayOfValues.length; i++) {
-      this.us.push(JSON.parse( this.arrayOfValues[i]));
-    }
+  constructor(private router: Router, public _userService: UserService) {
+    console.log(this.nombre + " " + this.clave);
   }
-
-  ngOnInit(): void {
-  }
-  
-  
-
-  Entrar() {
+ 
+  onSubmit() {
       //this.router.navigate(['/Principal']);
-      console.log(this.entraNombre + " " + this.entraClave);
-       let flag = false;
-      for(let i =0; i < this.us.length; i++) {
-          if(this.us[i].nombre === this.entraNombre && this.us[i].clave === this.entraClave) {
-            this.router.navigate(['/Principal']);
-            flag = true;
-            break;
-          }
+      const user = {
+        nombre: this.nombre,
+        clave: this.clave,
       }
-      if(flag == false) {
+      if (this._userService.login(user) ) {
+        this.router.navigate(['/Principal']);
+      } else {
         alert("el usuario no existe, tenes que registrarte");
       }
-
+      // console.log(this.nombre + " " + this.clave);
+      //  let flag = false;
+      // for(let i =0; i < this.us.length; i++) {
+      //     if(this.us[i].nombre === this.nombre && this.us[i].clave === this.clave) {
+      //       this.router.navigate(['/Principal']);
+      //       flag = true;
+      //       break;
+      //     }
+      // }
+      // if(flag == false) {
+      //   alert("el usuario no existe, tenes que registrarte");
+      // }
   }
-
 }
 
 

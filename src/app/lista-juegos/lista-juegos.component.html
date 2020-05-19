@@ -1,9 +1,17 @@
 <p>lista-juegos works!</p>
 
 <h2>Estadistica de juego para el jugador: {{jugador.nombre}}</h2>
-<ul>
-    <li *ngFor="let item of lista">
-        {{item.nombre}} {{item.cantidadPuntos}} {{item.hora}}
-
-    </li>
-</ul>
+<table class="table table-striped">
+    <thead>
+        <th>Nombre</th>
+        <th>Puntos</th>
+        <th>Hora</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of lista">
+            <td>{{item.nombre}}</td>
+            <td>{{item.cantidadPuntos}}</td>
+            <td>{{item.hora | date: 'dd/MM/yyyy hh:mm:ss'}}</td>
+        </tr>
+    </tbody>
+</table>

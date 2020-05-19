@@ -1,8 +1,7 @@
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { usuarioregistro } from './../../clases/usuarioregistro';
+import { UserService } from './../../servicios/user.service';
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute, ParamMap } from '@angular/router';
-import { usuarioregistro } from '../../clases/usuarioregistro';
-//para poder hacer las validaciones
-//import { Validators, FormBuilder, FormControl, FormGroup} from '@angular/forms';
 @Component({
   selector: 'app-registro',
   templateUrl: './registro.component.html',
@@ -15,21 +14,29 @@ export class RegistroComponent implements OnInit {
   formRegistro:FormGroup=this.miConstructor.group({
     usuario:this.email
   });*/
-  entraNombre= '';
-  entraClave = '';
 
-  us : usuarioregistro;
-
-  constructor() {
-       
-   }
+  form: FormGroup;
+  user : usuarioregistro;
+  constructor(public _userService: UserService) {
+    this.form = new FormGroup({
+      nombre: new FormControl(null, Validators.required),
+      clave: new FormControl(null, Validators.required),
+      cuit: new FormControl(null, Validators.required),
+      sexo: new FormControl(null, Validators.required)
+    }) 
+  }
 
   ngOnInit(): void {
   }
 
-  RegistraUsuario() {
-       this.us = new usuarioregistro(this.entraNombre, this.entraClave);
-       localStorage.setItem('admin', JSON.stringify ( this.us));
+  registraUsuario() {
+       const user: usuarioregistro = {
+          nombre: this.form.get('nombre').value,
+          clave: this.form.get('clave').value,
+          cuit: this.form.get('cuit').value,
+          sexo: this.form.get('sexo').value
+       }   
+       this._userService.addUser(user);
        alert("te registraste con exito");
   }
 

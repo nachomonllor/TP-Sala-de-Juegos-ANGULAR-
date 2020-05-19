@@ -1,25 +1,48 @@
-
 <body>
-    
-  <form class="modal-content animate" >
-    
+
+
     <div class="container">
-      <label><b>Nombre</b></label>
+        <form [formGroup]="form" class="modal-content animate">
+            <div class="row">
+                <div class="col">
+                    <label><b>Nombre</b></label>
+                    <input type="text" placeholder="nombre" formControlName="nombre" name="nombre" required>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label><b>Clave</b></label>
+                    <input type="password" placeholder="clave" formControlName="clave" name="clave" required>
+                </div>
+            </div>
 
-      <input type="text" placeholder="nombre" [(ngModel)]=  "entraNombre"  name="nombre" required>
+            <div class="row">
+                <div class="col">
+                    <label><b>Cuit</b></label>
+                    <input type="text" placeholder="cuit" formControlName="cuit" name="cuit" required>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label><b>Sexo</b></label>
+                    <select formControlName="sexo" class="form-control" required>
+                      <option value="-1" class="hidden" selected disabled>Selecciona</option>
+                      <option value="F">F</option>
+                      <option value="M">M</option>
+                    </select>
 
-      <label><b>Clave</b></label>
+                </div>
+            </div>
 
-      <input type="password" placeholder="clave" [(ngModel)]=  "entraClave"  name="clave" required>
 
-      <div class="clearfix">
-        <button type="submit" (click) = "RegistraUsuario()" class="signupbtn">Registrarme</button>
-      </div>
+            <div class="clearfix">
+                <button type="submit" (click)="registraUsuario()" [disabled]="form.invalid" class="signupbtn">Registrarme</button>
+            </div>
 
+        </form>
     </div>
-  </form>
- 
-  
+
+
 </body>
 
 
