@@ -15,14 +15,12 @@ export class AnagramaComponent implements OnInit {
   }
 
   ngOnInit() {
-    debugger
     this.palabraDesordenada = this._anagramaService.desordenarPalabra();
     this.palabra = '';
     // this.anagrama.cargarListaPalabras();
      //this.anagrama.inicializarJuego();
   }
   onSubmit(form: NgForm) {
-    debugger
     this._anagramaService.verifyResult(this.palabra)
     this._anagramaService.inicializarJuego();
     this.ngOnInit();

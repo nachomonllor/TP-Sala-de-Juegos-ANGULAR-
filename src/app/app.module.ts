@@ -98,7 +98,6 @@ import { ListaJuegosComponent } from './lista-juegos/lista-juegos.component';
     FormsModule,
     ReactiveFormsModule,
     RuteandoModule,
-    MaterialModule,
     ReactiveFormsModule,
     HttpClientModule,
     AgmCoreModule.forRoot({

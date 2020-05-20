@@ -71,56 +71,7 @@ export class JuegoAgilidad extends Juego {
     }
     */
    
-    cargarNumeros() {
-
-        this.num1  = Math.floor(Math.random() * this.limite);
-        this.num2  = Math.floor(Math.random() * this.limite);
-        this.indiceOperador = Math.floor(Math.random() * 3);
-    
-        if(this.indiceOperador == 0) {
-          this.res = this.num1 + this.num2;
-          this.operadorSeleccionado = "+";
-        }
-        else if(this.indiceOperador == 1) {
-            this.res = this.num1 - this.num2;
-            this.operadorSeleccionado = "-";
-        }
-        else if(this.indiceOperador == 2) {
-            this.res = this.num1 * this.num2;
-            this.operadorSeleccionado = "x";
-        }
-      }
-
-  
-      pasarSiguiente(){
-        //this._timer = setInterval(() => this.contador(), 1000);
-        this.cargarNumeros();
-      // this.resUsuario = "";
-      }
-
-    
-      
-      
-
-      finalizar(){
-       
-        
-        
-        this.juego = new Juego();
-        this.juego.nombre = "Agilidad Aritmetica";
-        this.juego.cantidadPuntos = this.puntos;
-        this.juego.hora = new Date();
-        this.juego.jugador = this.nombre;
-        this.listaJuegos.push(this.juego);
-
-
-       // localStorage.setItem('jugador', JSON.stringify(this.jug));
-        localStorage.setItem('lista', JSON.stringify(this.listaJuegos));
-        console.log(this.listaJuegos);
-
-        
-    
-       }
+ 
 
 
 }
