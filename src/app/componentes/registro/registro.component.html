@@ -1,46 +1,52 @@
 <body>
 
 
-    <div class="container">
-        <form [formGroup]="form" class="modal-content animate">
-            <div class="row">
-                <div class="col">
-                    <label><b>Nombre</b></label>
-                    <input type="text" placeholder="nombre" formControlName="nombre" name="nombre" required>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <label><b>Clave</b></label>
-                    <input type="password" placeholder="clave" formControlName="clave" name="clave" required>
-                </div>
-            </div>
+  <div class="container">
+    <form [formGroup]="form" class="modal-content animate">
+      <div class="row">
+        <div class="col">
+          <label><b>Usuario</b></label>
+          <input type="text" placeholder="username" formControlName="username" name="username" required>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <label><b>Nombre</b></label>
+          <input type="text" placeholder="nombre" formControlName="nombre" name="nombre" required>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <label><b>Clave</b></label>
+          <input type="password" placeholder="clave" formControlName="clave" name="clave" required>
+        </div>
+      </div>
 
-            <div class="row">
-                <div class="col">
-                    <label><b>Cuit</b></label>
-                    <input type="text" placeholder="cuit" formControlName="cuit" name="cuit" required>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <label><b>Sexo</b></label>
-                    <select formControlName="sexo" class="form-control" required>
+      <div class="row">
+        <div class="col">
+          <label><b>Cuit</b></label>
+          <input type="text" placeholder="cuit" formControlName="cuit" name="cuit" required>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <label><b>Sexo</b></label>
+          <select formControlName="sexo" class="form-control" required>
                       <option value="-1" class="hidden" selected disabled>Selecciona</option>
                       <option value="F">F</option>
                       <option value="M">M</option>
                     </select>
 
-                </div>
-            </div>
+        </div>
+      </div>
 
 
-            <div class="clearfix">
-                <button type="submit" (click)="registraUsuario()" [disabled]="form.invalid" class="signupbtn">Registrarme</button>
-            </div>
+      <div class="clearfix">
+        <button type="submit" (click)="registraUsuario()" [disabled]="form.invalid" class="signupbtn">Registrarme</button>
+      </div>
 
-        </form>
-    </div>
+    </form>
+  </div>
 
 
 </body>
@@ -48,8 +54,8 @@
 
 
 <!--body>
-  
-  
+
+
   <strong><p>No leer lo anterior, es solo un ejemplo sacado de https://www.argentina.gob.ar/terminos-y-condiciones </p></strong>
   <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Acepto</button>
   <button  class="cancelbtn"  routerLink="/Principal" style="width:auto;">No acepto</button>
@@ -59,15 +65,15 @@
       <div class="container">
         <label><b>Email</b></label>
         <input type="text" placeholder="Ingresa tu correo" name="email" required>
-  
+
         <label><b>Clave</b></label>
         <input type="password" placeholder="Aca la clave" name="psw" required>
-  
+
         <label><b>Repita la clave</b></label>
         <input type="password" placeholder="Aca repeti la misa clave  de arriba" name="psw-repeat" required>
         <input type="checkbox" checked="checked">Recordar mis datos
         <p>creando la cuenta aceptando los<a  onclick="document.getElementById('id01').style.display='none'"  >Terminos y condiciones</a>.</p>
-  
+
         <div class="clearfix">
           <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Me arrepenti</button>
           <button type="submit" class="signupbtn">Registrarme</button>
@@ -75,11 +81,11 @@
       </div>
     </form>
   </div>
-  
+
   <script>
   // Get the modal
   var modal = document.getElementById('id01');
-  
+
   // When the user clicks anywhere outside of the modal, close it
   window.onclick = function(event) {
       if (event.target == modal) {
@@ -87,5 +93,5 @@
       }
   }
   </script>
-  
+
   </body-->

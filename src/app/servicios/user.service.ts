@@ -1,11 +1,11 @@
-import { usuarioregistro } from './../clases/usuarioregistro';
+import { User } from '../models/user';
 import { Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-  user: usuarioregistro;
+  user: User;
   logged: boolean;
   constructor() { }
 
@@ -13,18 +13,18 @@ export class UserService {
     return JSON.parse(localStorage.getItem('usuarios')) || [];
   }
 
-  addUser(user: usuarioregistro) {
-    let users: usuarioregistro[] = JSON.parse(localStorage.getItem('usuarios'));
+  addUser(user: User) {
+    let users: User[] = JSON.parse(localStorage.getItem('usuarios')) || [];
     users.push(user);
     localStorage.setItem('usuarios', JSON.stringify( users ));
   }
 
   login(user) {
-    const users: usuarioregistro[]  = this.getUsers();
-    let userFilter: any = users.filter(u => {
-      return u.nombre === user.nombre;
+    const users: User[]  = this.getUsers();
+    const userFilter: any = users.filter(u => {
+      return u.username === user.username;
     });
-    if( userFilter[0] ) {
+    if ( userFilter[0] ) {
       if (userFilter[0].clave === user.clave) {
         this.logged = true;
         this.user = user;
@@ -35,10 +35,10 @@ export class UserService {
     }
   }
   isLogged() {
-    return this.logged; 
+    return this.logged;
   }
   logout() {
-    this.user = null; 
+    this.user = null;
     this.logged = false;
   }
 }

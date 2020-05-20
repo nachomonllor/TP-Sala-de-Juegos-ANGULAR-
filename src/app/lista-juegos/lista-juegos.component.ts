@@ -1,4 +1,4 @@
-import { usuarioregistro } from './../clases/usuarioregistro';
+import { User } from '../models/user';
 import { Component, OnInit } from '@angular/core';
 import { Jugador } from '../clases/jugador';
 import { Juego } from '../clases/juego';
@@ -10,7 +10,7 @@ import { Juego } from '../clases/juego';
 })
 export class ListaJuegosComponent implements OnInit {
 
-  jugador:usuarioregistro;
+  jugador: User;
   lista :Array<Juego>;
   constructor() {
     this.jugador = JSON.parse(localStorage.getItem('usuarios'));

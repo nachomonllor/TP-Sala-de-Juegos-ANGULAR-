@@ -1,5 +1,5 @@
 import { RegistroComponent } from './../componentes/registro/registro.component';
-import { usuarioregistro } from './usuarioregistro';
+import { User } from '../models/user';
 import { Jugador } from "./jugador";
 import { Juego } from "./juego";
 import { JuegoStorage } from "./juegoStorage";
@@ -34,13 +34,13 @@ export class JuegoAgilidad extends Juego {
 
     listaJuegos:Array<JuegoStorage>;
     jug: Jugador;
-   
-    us: usuarioregistro;
+
+    us: User;
     //this.us = new usuarioregistro(this.entraNombre, this.entraClave);
        // localStorage.setItem(this.entraNombre, JSON.stringify ( this.us));
 
-    constructor(nombre?: string, gano?: boolean,jugador?:string,_puntos?: number, _hora?:Date) 
-    { 
+    constructor(nombre?: string, gano?: boolean,jugador?:string,_puntos?: number, _hora?:Date)
+    {
         super(nombre, gano, jugador, _puntos, _hora)
       //2.colocar nombre del juego
        this.juego = new Juego
@@ -51,7 +51,7 @@ export class JuegoAgilidad extends Juego {
 
       this.listaJuegos = new Array<Juego>();
       // this.listaJuegos = JSON.parse(localStorage.getItem('lista'));
-      
+
       let aux : Array<Juego> =  JSON.parse(localStorage.getItem('lista'));
       if(aux != null) {
         for(let i =0; i < aux.length; i++) {
@@ -70,8 +70,8 @@ export class JuegoAgilidad extends Juego {
         this._timer = setInterval(() => this.contador(), 1000);
     }
     */
-   
- 
+
+
 
 
 }

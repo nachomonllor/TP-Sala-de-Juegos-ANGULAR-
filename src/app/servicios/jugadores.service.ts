@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ArchivosJugadoresService}from './archivos-jugadores.service'
+import { ArchivosJugadoresService} from './archivos-jugadores.service'
 @Injectable()
 export class JugadoresService {
 
@@ -12,7 +12,7 @@ export class JugadoresService {
 
 filtrado:any;
 
-  traertodos(ruta : string,filtro: string) 
+  traertodos(ruta : string,filtro: string)
   {
     return this.miHttp.traerJugadores(ruta).then(data=>{
       console.info("jugadores service",data);
@@ -33,11 +33,11 @@ filtrado:any;
         data => data.gano === ganador  || filtro=="todos" ); return this.filtrado}
       )
       .catch(errror=>{console.log("error")
-      
+
 
 
     return this.filtrado;
-      
+
 
     });
   }

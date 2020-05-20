@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-//import { Jugador } from './jugador';
 
 import { Juego } from '../clases/juego';
 import { Jugador } from '../clases/jugador';
@@ -11,28 +10,28 @@ export class BasedatosService {
    // _juegos: Juego[] = [];
         usuarios: Jugador[] = [
         {
-        nombre:"Juan Perez",
+        nombre: 'Juan Perez ',
         juegos: new Array<Juego>(),
-        usuario:"jjperez",
-        contras:"123456" 
+        usuario: 'jjperez ',
+        contras: '123456 '
        },
        {
-           nombre:"Ignacio Monllor",
+           nombre: 'Ignacio Monllor ',
            juegos: new Array<Juego>(),
-           usuario:"imonllor",
-           contras:"123456" 
+           usuario: 'imonllor ',
+           contras: '123456 '
        },
        {
-           nombre:"Ana Lopez",
+           nombre: 'Ana Lopez ',
            juegos: new Array<Juego>(),
-           usuario:"alopez",
-           contras:"123456" 
+           usuario: 'alopez ',
+           contras: '123456 '
        },
        {
-         nombre: "admin",
+         nombre:  'admin ',
          juegos: new Array<Juego>(),
-         usuario: "admin",
-         contras: "admin"
+         usuario:  'admin ',
+         contras:  'admin '
 
        }
     ];

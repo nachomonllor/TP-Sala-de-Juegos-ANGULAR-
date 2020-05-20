@@ -12,7 +12,7 @@ export class AppComponent {
   }
   private initDB() {
     const users = JSON.parse(localStorage.getItem('usuarios'));
-    if(users.length === 0) {
+    if(users && users.length === 0) {
       localStorage.setItem('usuarios', JSON.stringify([]));
     }
   }
