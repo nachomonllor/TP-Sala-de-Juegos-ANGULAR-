@@ -1,32 +1,37 @@
-<body [ngStyle]="{'background-color': 'black'}">
-    <br>
-    <br>
-    <div style="text-align: center" class="texto_cabecera">
-        Anagramas - Encontrá la palabra
-    </div>
-    <br>
-    <div style="text-align: center">
-        <!-- <button name="palabraDesordenada" class="btn btn-primary botonUsuario" disabled>
-                
+<body [ngStyle]="{ 'background-color': 'black' }">
+  <br />
+  <br />
+  <div style="text-align: center;" class="texto_cabecera">
+    Anagramas - Encontrá la palabra
+  </div>
+  <br />
+  <div style="text-align: center;">
+    <!-- <button name="palabraDesordenada" class="btn btn-primary botonUsuario" disabled>
+
          </button> -->
-        <form (ngSubmit)="onSubmit(f)" #f=ngForm>
-
-            <input type="text" name="palabraDesordenada" class="texto" value="{{ palabraDesordenada }}" />
-
-            <input type="text" name="palabra" class="texto" [(ngModel)]="palabra" />
-
-            <button class="btn btn-primary" type="submit">
-                Enviar
-            </button>
-            <br>
-            <button class="btn btn-primary" type="button" (click)="endGame()">
-              Finalizar
-            </button>
-            <div style="text-align: center" class="texto">
-                <br> {{_anagramaService.resultado + " intento: " + _anagramaService.intentos}}
-                <br> Puntos {{_anagramaService.puntos}}
-            </div>
-        </form>
-    </div>
-
+    <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+      <input
+        type="text"
+        name="palabraDesordenada"
+        class="texto"
+        value="{{ palabraDesordenada }}"
+      />
+      <input type="text" name="palabra" class="texto" [(ngModel)]="palabra" />
+      <button class="btn btn-primary" type="submit">
+        Enviar
+      </button>
+      <br />
+      <button class="btn btn-primary" type="button" (click)="endGame()">
+        Finalizar
+      </button>
+      <div style="text-align: center;" class="texto">
+        <br />
+        {{
+          _anagramaService.resultado + ' intento: ' + _anagramaService.intentos
+        }}
+        <br />
+        Puntos {{ _anagramaService.cantidadPuntos }}
+      </div>
+    </form>
+  </div>
 </body>

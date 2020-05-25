@@ -2,6 +2,7 @@ import { User } from '../models/user';
 import { Component, OnInit } from '@angular/core';
 import { Jugador } from '../clases/jugador';
 import { Juego } from '../clases/juego';
+import { UserService } from '../servicios/user.service';
 
 @Component({
   selector: 'app-lista-juegos',
@@ -10,10 +11,10 @@ import { Juego } from '../clases/juego';
 })
 export class ListaJuegosComponent implements OnInit {
 
-  jugador: User;
-  lista :Array<Juego>;
-  constructor() {
-    this.jugador = JSON.parse(localStorage.getItem('usuarios'));
+  user: User;
+  lista: Juego[] = [];
+  constructor(public _userService: UserService) {
+    this.user = _userService.user;
     this.lista = JSON.parse(localStorage.getItem('lista'));
    }
   ngOnInit(): void {

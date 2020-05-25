@@ -1,13 +1,8 @@
 import { User } from '../../models/user';
-
 import { UserService } from './../../servicios/user.service';
-
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
-
-//import { USUARIOS } from '../../clases/usuarios';
-
 
 @Component({
   selector: 'app-login',
@@ -33,7 +28,7 @@ export class LoginComponent {
     const user = {
       username: this.username,
       clave: this.clave,
-    }
+    };
     if (this._userService.login(user)) {
       this.router.navigate(['/Principal']);
     } else {

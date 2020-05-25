@@ -27,6 +27,7 @@ export class UserService {
     if ( userFilter[0] ) {
       if (userFilter[0].clave === user.clave) {
         this.logged = true;
+        debugger
         this.user = user;
         return true;
       } else {

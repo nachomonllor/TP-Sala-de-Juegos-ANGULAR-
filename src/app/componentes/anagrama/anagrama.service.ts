@@ -1,5 +1,6 @@
 import { Game } from '../../models/game.model';
 import { Injectable } from '@angular/core';
+import { UserService } from '../../servicios/user.service';
 
 @Injectable({
   providedIn: 'root'
@@ -8,11 +9,11 @@ export class AnagramaService {
   palabras: string[] = ['computadora', 'microfono', 'mesa', 'telefono', 'anagrama'];
   palabraOrdenada: string = '';
   palabraDesordenada: string = '';
-  intentos = 0;  
-  puntos: number = 0;
-  resultado: string = '';
+  intentos = 0;
+  cantidadPuntos: number = 0;
+  resultado = '';
   palabraIngresada: string;
-  constructor() { 
+  constructor(public _userService: UserService) {
     this.inicializarJuego();
   }
   inicializarJuego() {
@@ -25,7 +26,7 @@ export class AnagramaService {
     console.log(this.palabraOrdenada);
   }
   desordenarPalabra(): string {
-    //algoritmo de Fisherâ€“Yates 
+    //algoritmo de Fisherâ€“Yates
     //this.palabraDesordenada = shuffle
     var ch = new Array();
     var n = this.palabraOrdenada.length;
@@ -53,10 +54,10 @@ export class AnagramaService {
       if(this.intentos < 5) {
         this.intentos++;
         if(palabra == this.palabraOrdenada ) {
-            //console.log( "ACERTASTE" ); 
+            //console.log( "ACERTASTE" );
            // alert("ACERTASTE");
             this.resultado = "ACERTASTE";
-            this.puntos += 10;
+            this.cantidadPuntos += 10;
             this.seleccionarPalabra();
             this.desordenarPalabra();
             this.intentos = 0;
@@ -64,8 +65,8 @@ export class AnagramaService {
         }
         else {
             this.resultado = "TE EQUIVOCASTE";
-            this.puntos -= 5;
-        }        
+            this.cantidadPuntos -= 5;
+        }
         console.log(this.intentos);
     }else{
 
@@ -84,15 +85,15 @@ export class AnagramaService {
    saveGame() {
     const game: Game = {
       nombre: "Anagrama",
-      puntos: this.puntos,
+      cantidadPuntos: this.cantidadPuntos,
       hora: new Date(),
-      jugador: 'jj',
+      jugador: this._userService.user.username,
       gano: true
-    };         
+    };
 
     const lista = JSON.parse(localStorage.getItem('lista')) || [];
     lista.push(game);
     localStorage.setItem('lista', JSON.stringify(lista));
-    this.puntos = 0;
+    this.cantidadPuntos = 0;
    }
 }

@@ -1,12 +1,11 @@
 import { AgilityAritmeticService } from './agility-aritmetic.service';
-import { Component, OnInit ,Input,Output,EventEmitter} from '@angular/core';
-//import { JuegoAgilidad } from '../../clases/juego-agilidad'
-
-import {Subscription} from "rxjs";
-import { timer } from "rxjs";
+import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
+// tslint:disable-next-line: import-blacklist
+import {Subscription, timer} from 'rxjs';
 import { Juego } from '../../clases/juego';
 import { JuegoAgilidad } from '../../clases/juego-agilidad';
-
+import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-agilidad-aritmetica',
@@ -14,9 +13,9 @@ import { JuegoAgilidad } from '../../clases/juego-agilidad';
   styleUrls: ['./agilidad-aritmetica.component.css']
 })
 export class AgilidadAritmeticaComponent implements OnInit {
-  @Output() 
-  enviarJuego :EventEmitter<any>= new EventEmitter<any>();
-  nuevoJuego : JuegoAgilidad;
+  @Output()
+  enviarJuego: EventEmitter<any> = new EventEmitter<any>();
+  nuevoJuego: JuegoAgilidad;
   ocultarVerificar: boolean;
   calculo: string;
   resUsuario: number;
@@ -25,95 +24,107 @@ export class AgilidadAritmeticaComponent implements OnInit {
   reloj: number = this.maxTime;
   //repetidor:any;
   private subscription: Subscription;
-  _timer:any;
+  _timer: any;
 
   // lista :Array<Juego>;
 
   ngOnInit() {}
-   constructor(public _agilityAritmeticService: AgilityAritmeticService) {
+   constructor(
+    private router: Router,
+    public _agilityAritmeticService: AgilityAritmeticService) {
     //  this.ocultarVerificar=true;
-    //  this.reloj=5; 
+    //  this.reloj=5;
     // this.nuevoJuego = new JuegoAgilidad();
-    this.newGame();
+    this.newGame(1, 10);
   }
   onSubmit() {
-    this.isValid = this._agilityAritmeticService.verifyResult(this.resUsuario);    
+    this.isValid = this._agilityAritmeticService.verifyResult(this.resUsuario);
     if (this.isValid) {
       this.subirDeNivel();
-      this.newGame();
-      this._agilityAritmeticService.puntos += 20;
-      this._agilityAritmeticService.puntos = this._agilityAritmeticService.puntos <= 0 
-                                                      ? 0 : this._agilityAritmeticService.puntos; 
+      this._agilityAritmeticService.cantidadPuntos += 20;
+      this._agilityAritmeticService.cantidadPuntos = this._agilityAritmeticService.cantidadPuntos <= 0
+                                                      ? 0 : this._agilityAritmeticService.cantidadPuntos;
+    }
+  }
+  newGame(nivel, limite) {
+    this.reloj = this.maxTime;
+    this._agilityAritmeticService.nivel = nivel;
+    this._agilityAritmeticService.limite = limite; // limite de los numeros aleatorios
+    this.calculo = this._agilityAritmeticService.getCalulo();
+    this.resUsuario = null;
+    this._agilityAritmeticService.nivel = 1;
+    if (!this._timer) {
+      this._timer = setInterval(() => this.checkTimeOver(), 1000);
     }
   }
 
-  newGame() {
-    this.calculo = this._agilityAritmeticService.getCalulo();
-    this.clearTimer();
-    this.resUsuario = null;
-    this._agilityAritmeticService.nivel = 1;
+  private stopTimer() {
+    clearInterval(this._timer);
   }
 
-  private clearTimer() {
-    clearInterval(this._timer);
-    this._timer = setInterval(() => this.checkTimeOver(), 1000);
-    this.reloj = this.maxTime;
-    
-  }
   checkTimeOver(){
     //clearInterval(myVar);
     // clearInterval(this._timer);
     this.reloj--;
     if ( this.reloj <= 0 ) {
-      alert("Se te acabo el tiempo");
-      this.reloj = this.maxTime;
-      this._agilityAritmeticService.nivel = 1;
-      this._agilityAritmeticService.limite = 10; //limite de los numeros aleatorios
-      this.newGame();
-      this.clearTimer();
-      this._agilityAritmeticService.gameOver();
-      // this.NuevoJuego();
-      // this.nuevoJuego.pasarSiguiente();
+      this.stopTimer();
+      Swal.fire({
+        title: 'Game Over',
+        text: '¿Quires seguir Jugando?',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Sí',
+        cancelButtonText: 'No',
+      }).then((result) => {
+        if (result.value) {
+          this.newGame(1, 10);
+        } else {
+          this._agilityAritmeticService.gameOver();
+          this.router.navigate(['/Principal']);
+        }
+      });
     }
   }
 
   subirDeNivel() {
-    this._agilityAritmeticService.limite += 20;
-    this._agilityAritmeticService.nivel++;
-    this.clearTimer();
+    this.newGame(
+      this._agilityAritmeticService.nivel++,
+      this._agilityAritmeticService.limite += 20
+    );
+  //  this.clearTimer();
     //this.resetearColorBotones();
-    if(this._agilityAritmeticService.puntos > this._agilityAritmeticService.maximo_puntaje) {
-      this._agilityAritmeticService.maximo_puntaje = this._agilityAritmeticService.puntos;
+    if ( this._agilityAritmeticService.cantidadPuntos > this._agilityAritmeticService.maximo_puntaje) {
+      this._agilityAritmeticService.maximo_puntaje = this._agilityAritmeticService.cantidadPuntos;
     }
   }
-  
+
 // comparar() {
 //   if(this.nuevoJuego.res == this.nuevoJuego.resUsuario) {
-//      this.nuevoJuego.comparacion ="CORRECTO";
+//      this.nuevoJuego.comparacion ='CORRECTO';
 //     // this.resUsuario = 0;
-//      this.nuevoJuego.puntos=this.nuevoJuego.puntos+10;  
-//      if(this.nuevoJuego.puntos % 50 == 0) {
+//      this.nuevoJuego.cantidadPuntos=this.nuevoJuego.cantidadPuntos+10;
+//      if(this.nuevoJuego.cantidadPuntos % 50 == 0) {
 //        this.subirDeNivel();
-//      }      
-//      //clearInterval(this._timer);  
+//      }
+//      //clearInterval(this._timer);
 //      this.reloj=5;
 //      this.nuevoJuego.pasarSiguiente();
 //   }
 //   else{
-//     this.nuevoJuego.comparacion ="INCORRECTO-Escriba de vuelta el resulta";
-    
+//     this.nuevoJuego.comparacion ='INCORRECTO-Escriba de vuelta el resulta';
+
 //     /*
 //     if(this.reloj <= 0) {
-//       this.nuevoJuego.comparacion = "GAME OVER";
+//       this.nuevoJuego.comparacion = 'GAME OVER';
 //       this.reloj =0;
-//       clearInterval(this._timer); 
+//       clearInterval(this._timer);
 //     }
 //     */
 
-      
+
 //   }
-  
-//   console.log(this.nuevoJuego.num1 + " " + this.nuevoJuego.operadorSeleccionado + " " + this.nuevoJuego.num2);
+
+//   console.log(this.nuevoJuego.num1 + ' ' + this.nuevoJuego.operadorSeleccionado + ' ' + this.nuevoJuego.num2);
 
 // }
 
@@ -124,7 +135,7 @@ export class AgilidadAritmeticaComponent implements OnInit {
    // clearInterval(this.repetidor);
   }
   */
- 
+
 }
 
 

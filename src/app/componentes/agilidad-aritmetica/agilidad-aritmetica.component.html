@@ -1,18 +1,24 @@
-<body style="background-color:rgb(0, 0, 0);">
-    <div class="text-center mt-4 texto_cabecera">
-        Completa la expresión
-    </div>
-    <br>
-    <div class="text-center">
-        <form #f=ngForm>
+<body style="background-color: rgb(0, 0, 0);">
+  <div class="text-center mt-4 texto_cabecera">
+    Completa la expresión
+  </div>
+  <br />
+  <div class="text-center">
+    <form #f="ngForm">
+      <input type="text" disabled name="calculo" [(ngModel)]="calculo" />
 
-            <input type="text" disabled name="calculo" [(ngModel)]="calculo">
+      <hr />
 
-            <hr>
-
-            <input type="number" autocomplete="off" name="resUsuario" class="textoUsuario" [(ngModel)]="resUsuario" (keyup)="onSubmit()" />
-            <br>
-            <!--<br>
+      <input
+        type="number"
+        autocomplete="off"
+        name="resUsuario"
+        class="textoUsuario"
+        [(ngModel)]="resUsuario"
+        (keyup)="onSubmit()"
+      />
+      <br />
+      <!--<br>
         <button mat-raised-button class="otroBoton" (click)="nuevoJuego.finalizar()">
             Finalizar
         </button>
@@ -21,35 +27,36 @@
             Comenzar
         </button>
     -->
-            <div class="text-center texto">
-                <div class="row">
-                    <div class="col">
-                        <span *ngIf="isValid === 1" class="badge badge-success">Correcto</span>
-                        <span *ngIf="isValid === 0" class="badge badge-danger">Incorrecto</span>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <span class="text-white">
-                            Tiempo: {{reloj}} - Nivel: {{_agilityAritmeticService.nivel}}
-                        </span>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <span class="text-white">
-                            Puntos: {{_agilityAritmeticService.puntos}} - Maximo Puntaje: {{ _agilityAritmeticService.maximo_puntaje }}
-                        </span>
-                    </div>
-                </div>
-
-            </div>
-        </form>
-    </div>
-
+      <div class="text-center texto">
+        <div class="row">
+          <div class="col">
+            <span *ngIf="isValid === 1" class="badge badge-success">
+              Correcto
+            </span>
+            <span *ngIf="isValid === 0" class="badge badge-danger">
+              Incorrecto
+            </span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <span class="text-white">
+              Tiempo: {{ reloj }} - Nivel: {{ _agilityAritmeticService.nivel }}
+            </span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <span class="text-white">
+              Puntos: {{ _agilityAritmeticService.cantidadPuntos }} - Maximo
+              Puntaje: {{ _agilityAritmeticService.maximo_puntaje }}
+            </span>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
 </body>
-
-
 
 <!--The content below is only a placeholder and can be replaced.-->
 <!--app-menu></app-menu-->
@@ -60,19 +67,19 @@
 <ul>
    <li>
    Primer número: <input [(ngModel)]="nuevoJuego.numeroIngresado " placeholder="ingrese numero " name="numeroIngresado " type="text " class="form-control " style="width:50% " readonly/>
-  
+
   </li>
   <li>
    Operador: <input [(ngModel)]="nuevoJuego.numeroIngresado " placeholder="ingrese numero " name="numeroIngresado " type="text " class="form-control " style="width:50% " readonly/>
-    
+
   </li>
   <li>
    Segundo número: <input [(ngModel)]="nuevoJuego.numeroIngresado " placeholder="ingrese numero " name="numeroIngresado " type="text " class="form-control " style="width:50% " readonly/>
-    
+
   </li>
   <li>
     Respuesta: <input [(ngModel)]="nuevoJuego.numeroIngresado " placeholder="ingrese numero " name="numeroIngresado " type="text " class="form-control " style="width:50% "/>
-     
+
    </li>
   <li>
     <h2 [hidden]="ocultarVerificar " ><button (click)="verificar() " class="btn btn-success btn-lg ">Verificar {{Tiempo}} </button></h2>

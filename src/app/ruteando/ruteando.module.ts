@@ -11,7 +11,7 @@ import { AgilidadAritmeticaComponent } from '../componentes/agilidad-aritmetica/
 import { MenuComponent } from '../componentes/menu/menu.component';
 import { AdivinaMasListadoComponent } from '../componentes/adivina-mas-listado/adivina-mas-listado.component';
 import { AgilidadMasListadoComponent } from '../componentes/agilidad-mas-listado/agilidad-mas-listado.component';
-import { ListadoComponent } from'../componentes/listado/listado.component'
+import { ListadoComponent } from '../componentes/listado/listado.component'
 import { ListadosComponent } from '../componentes/listados/listados.component';
 import { JuegosComponent } from '../componentes/juegos/juegos.component';
 import { RegistroComponent } from '../componentes/registro/registro.component';

@@ -4,3 +4,6 @@
     font-family: "8Bits";
     src: url("./assets/fonts/8-BITWONDER.TTF");
 }
+a {
+  cursor: pointer;
+}
