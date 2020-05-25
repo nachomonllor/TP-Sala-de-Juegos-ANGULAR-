@@ -2,9 +2,9 @@ import { Juego } from '../../clases/juego';
 
 export class JuegoTateti extends Juego {
 
-  listaPrimos = [];
+  //listaPrimos = [];
   posiciones;
-
+  jugador='O';
   constructor(nombre?: string, gano?: boolean, jugador?: string, _puntos?: number, _hora?: Date) {
     super(nombre, gano, jugador, _puntos, _hora)
     this.initialize();

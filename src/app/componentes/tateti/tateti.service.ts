@@ -9,7 +9,7 @@ export class TatetiService {
   constructor(public _userService: UserService) {}
   saveGame(puntos: number) {
     const game: Game = {
-      nombre: 'Primos',
+      nombre: 'Tateti',
       cantidadPuntos: puntos,
       hora: new Date(),
       jugador: this._userService.user.username,
