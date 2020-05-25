@@ -15,11 +15,11 @@ import { HttpClientModule } from '@angular/common/http';
 // import { AccordionModule } from 'ngx-bootstrap';
 // agrego las clases para utilizar ruteo
 
-import { MiHttpService } from './servicios/mi-http/mi-http.service'; 
-import { PaisesService } from './servicios/paises.service'; 
+import { MiHttpService } from './servicios/mi-http/mi-http.service';
+import { PaisesService } from './servicios/paises.service';
 
-import { JugadoresService } from './servicios/jugadores.service'; 
-import{ ArchivosJugadoresService} from './servicios/archivos-jugadores.service'; 
+import { JugadoresService } from './servicios/jugadores.service';
+import{ ArchivosJugadoresService} from './servicios/archivos-jugadores.service';
 import { ErrorComponent } from './componentes/error/error.component';
 import { PrincipalComponent } from './componentes/principal/principal.component';
 import { AgilidadAritmeticaComponent } from './componentes/agilidad-aritmetica/agilidad-aritmetica.component';
@@ -58,7 +58,7 @@ import { InputJugadoresComponent } from './componentes/input-jugadores/input-jug
 import { SexoPipe } from './pipes/sexo.pipe';
 import { MenujuegosComponent } from './menujuegos/menujuegos.component';
 import { PrimosComponent } from './componentes/primos/primos.component';
-import { PiedrapapeltijeraComponent } from './componentes/piedrapapeltijera/piedrapapeltijera.component';
+import { PiedrapapeltijeraComponent } from './componentes/menu/piedrapapeltijera/piedrapapeltijera.component';
 import { TatetiComponent } from './componentes/tateti/tateti.component';
 import { ListaJuegosComponent } from './lista-juegos/lista-juegos.component';
 
@@ -103,7 +103,7 @@ import { ListaJuegosComponent } from './lista-juegos/lista-juegos.component';
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyB6f8x4IjRlesQ3oETc6BXYQHVRTOlY3Ys'
     }),
-  
+
     // NgbModule.forRoot(MiRuteo),
     // importo el ruteo
     // RouterModule.forRoot(MiRuteo)

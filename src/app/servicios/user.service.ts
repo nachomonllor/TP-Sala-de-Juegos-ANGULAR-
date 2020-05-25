@@ -7,8 +7,9 @@ import { Injectable } from '@angular/core';
 export class UserService {
   user: User;
   logged: boolean;
-  constructor() { }
-
+  constructor() {
+    this.user = JSON.parse(localStorage.getItem('user'));
+   }
   getUsers() {
     return JSON.parse(localStorage.getItem('usuarios')) || [];
   }
@@ -27,7 +28,7 @@ export class UserService {
     if ( userFilter[0] ) {
       if (userFilter[0].clave === user.clave) {
         this.logged = true;
-        debugger
+        localStorage.setItem('user', JSON.stringify( user ));
         this.user = user;
         return true;
       } else {

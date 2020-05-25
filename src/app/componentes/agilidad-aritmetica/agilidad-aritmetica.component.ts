@@ -3,7 +3,7 @@ import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 // tslint:disable-next-line: import-blacklist
 import {Subscription, timer} from 'rxjs';
 import { Juego } from '../../clases/juego';
-import { JuegoAgilidad } from '../../clases/juego-agilidad';
+import { JuegoAgilidad } from './juego-agilidad';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
 

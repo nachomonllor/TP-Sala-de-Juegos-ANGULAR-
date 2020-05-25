@@ -23,7 +23,7 @@ import { MapaDeGoogleComponent } from '../componentes/mapa-de-google/mapa-de-goo
 import { JugadoresListadoComponent } from '../componentes/jugadores-listado/jugadores-listado.component';
 import { AnagramaComponent } from '../componentes/anagrama/anagrama.component';
 import { PrimosComponent } from '../componentes/primos/primos.component';
-import { PiedrapapeltijeraComponent } from '../componentes/piedrapapeltijera/piedrapapeltijera.component';
+import { PiedrapapeltijeraComponent } from '../componentes/menu/piedrapapeltijera/piedrapapeltijera.component';
 import { TatetiComponent } from '../componentes/tateti/tateti.component';
 import { ListaJuegosComponent } from '../lista-juegos/lista-juegos.component';
 

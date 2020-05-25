@@ -1,15 +1,15 @@
 import { Juego } from '../clases/juego'
 
-export class JuegoAdivina extends  Juego {
+export class JuegoAdivina extends Juego {
+
     numeroSecreto: number = 0;
     numeroIngresado = 0;
-    
     constructor(nombre?: string, gano?: boolean, jugador?:string) {
-        super("Adivina el número",gano,jugador);
-     
-    
-      
-      }
+        super('Adivina el número', gano, jugador);
+    }
+    initialize() {
+      throw new Error("Method not implemented.");
+    }
     public verificar() {
         if (this.numeroIngresado == this.numeroSecreto) {
           this.gano = true;
@@ -27,8 +27,8 @@ export class JuegoAdivina extends  Juego {
       }
       public retornarAyuda() {
         if (this.numeroIngresado < this.numeroSecreto) {
-          return "Falta";
+          return 'Falta';
         }
-        return "Te pasate";
+        return 'Te pasate';
       }
 }
