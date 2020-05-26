@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { JuegoTateti } from './juego-tateti';
+import { TatetiService } from './tateti.service';
 
 @Component({
   selector: 'app-tateti',
@@ -8,7 +9,7 @@ import { JuegoTateti } from './juego-tateti';
 })
 export class TatetiComponent implements OnInit {
   tateti: JuegoTateti;
-  constructor() {
+  constructor(private tatetiService : TatetiService) {
     this.tateti = new JuegoTateti();
   }
 
