@@ -62,7 +62,7 @@ export class AgilidadAritmeticaComponent implements OnInit {
     clearInterval(this._timer);
   }
 
-  checkTimeOver(){
+  checkTimeOver() {
     //clearInterval(myVar);
     // clearInterval(this._timer);
     this.reloj--;

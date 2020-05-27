@@ -1,6 +1,6 @@
-import { Juego } from '../../../clases/juego';
-import { JuegoStorage } from '../../../clases/juegoStorage';
-import { JuegoAdivina } from '../../../clases/juego-adivina';
+import { Juego } from '../../clases/juego';
+import { JuegoStorage } from '../../clases/juegoStorage';
+import { JuegoAdivina } from '../../clases/juego-adivina';
 
 export class JuegoPiedraPapelTijera extends Juego {
   indiceElementoSeleccionado: number;
@@ -40,8 +40,8 @@ export class JuegoPiedraPapelTijera extends Juego {
     }
   }
   // ngOnInit() {
-    // this.jugador = JSON.parse(localStorage.getItem('admin'));
-    // console.log(this.jugador);
+  // this.jugador = JSON.parse(localStorage.getItem('admin'));
+  // console.log(this.jugador);
   // }
   initialize() {
     this.seleccionarElemento();
@@ -57,7 +57,6 @@ export class JuegoPiedraPapelTijera extends Juego {
   }
   comparar() {
     if (this.elementoSeleccionado === 'piedra') {
-
       if (this.palabraIngresada === 'piedra') {
         this.resultadoParcial = 'EMPATE';
       } else if (this.palabraIngresada === 'papel') {

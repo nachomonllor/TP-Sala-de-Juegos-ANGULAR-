@@ -58,7 +58,7 @@ import { InputJugadoresComponent } from './componentes/input-jugadores/input-jug
 import { SexoPipe } from './pipes/sexo.pipe';
 import { MenujuegosComponent } from './menujuegos/menujuegos.component';
 import { PrimosComponent } from './componentes/primos/primos.component';
-import { PiedrapapeltijeraComponent } from './componentes/menu/piedrapapeltijera/piedrapapeltijera.component';
+import { PiedrapapeltijeraComponent } from './componentes/piedrapapeltijera/piedrapapeltijera.component';
 import { TatetiComponent } from './componentes/tateti/tateti.component';
 import { ListaJuegosComponent } from './lista-juegos/lista-juegos.component';
 
