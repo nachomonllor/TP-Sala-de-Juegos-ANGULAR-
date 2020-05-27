@@ -2,7 +2,7 @@ export abstract class Juego {
   public nombre = 'Sin Nombre';
   public jugador: string;
   public gano = false;
-  cantidadPuntos: number;
+  cantidadPuntos: number = 0;
   hora: Date;
 
   constructor(

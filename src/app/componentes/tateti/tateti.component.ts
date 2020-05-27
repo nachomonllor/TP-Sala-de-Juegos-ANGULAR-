@@ -19,6 +19,8 @@ export class TatetiComponent implements OnInit, OnDestroy {
     this.setTimer();
   }
   ngOnDestroy() {
+    // desubscribo las suscripciones para no tenerlas escuchando y que no se vuelvan a subscribir 
+    // repetidamente sino se puede caer en un memory leak si no la desubscribo
     if (this.subscription) {
       this.subscription.unsubscribe();
     }

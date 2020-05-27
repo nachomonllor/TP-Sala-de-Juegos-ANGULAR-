@@ -14,13 +14,31 @@ export class PiedrapapeltijeraComponent {
   observador: Observable<any>;
   timer: any;
   subscription: Subscription;
-  constructor(private router: Router, public _ppt: PptService) {
+  constructor(private router: Router, public _pptService: PptService) {
     this.ppt = new JuegoPiedraPapelTijera();
+    this.setTimer();
   }
-
+  setTimer() {
+    this.ppt.gano = false;
+    this.observador = new Observable(subscriber => {
+      this.timer = setInterval(() => {
+        if ( this.ppt.rondas === 3 ) {
+          clearInterval(this.timer);
+          subscriber.next(this.ppt.gano);
+        }
+      }, 300);
+    });
+    this.subscription = this.observador.subscribe(data => {
+      this.endGame(data);
+    });
+  }
   endGame(data) {
+    const result = data ? 'HUMANO'
+                        : !data
+                           ? 'COMPUTADOR'
+                        : 'EMPATE';
     Swal.fire({
-      title: `La ficha ${data} ha ganado`,
+      title: `El ganador fue: ${result}`,
       text: '¿Quires seguir Jugando?',
       icon: 'success',
       showCancelButton: true,
@@ -30,10 +48,10 @@ export class PiedrapapeltijeraComponent {
     }).then((result) => {
       if (result.value) {
         this.ppt.initialize();
-        //  this.setTimer();
+        this.setTimer();
       } else {
         this.subscription.unsubscribe();
-        //  this._pptService.saveGame(this.ppt.puntos);
+        this._pptService.saveGame(this.ppt.cantidadPuntos);
         this.router.navigate(['/Principal']);
       }
     });
