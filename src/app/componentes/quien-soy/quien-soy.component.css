@@ -140,3 +140,9 @@ h5.texto {
     text-align: center;
     color: white;
 }
+
+.imagen {
+    display: block;
+    margin: auto;
+    width: 100px;
+}
